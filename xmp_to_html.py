@@ -5,7 +5,7 @@ import xml.etree.ElementTree as ET
 from xml.dom import minidom
 import xmltodict
 import random
-
+import glob
 import pandas as pd
 
 # data_dict = xmltodict.parse(open("xmp_files/123PRESETS SunKissed V4.xmp", encoding='utf-8').read())
