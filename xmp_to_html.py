@@ -193,7 +193,7 @@ random_colors = ['#00ad8b', '#25b9a9', '#ff3200',]
 color_length = len(dfs.columns.tolist())
 color_arr = []
 for c in range(color_length):
-    r = lambda: random.randint(0,255)
+    r = lambda: random.randint(100,200)
     color_arr.append('#%02X%02X%02X' % (r(),r(),r()))
 render_html(dfs.columns.tolist(), dfs.to_dict(), color_arr)
 
