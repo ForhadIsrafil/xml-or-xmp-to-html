@@ -1,0 +1,21 @@
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<body>
+<table border="1" class="dataframe table table-responsive table-success table-bordered table-hover table-sm">
+    <thead>
+    <tr style="text-align: right;">
+        {% for coloumn_name in coloumn_names %}
+        <th>{{ coloumn_name }}</th>
+        {% endfor %}
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        {% for key, coloumn_value in coloumn_values.items() %}
+        <td>{{ coloumn_value[0] }}</td>
+        {% endfor %}
+    </tr>
+    </tbody>
+</table>
+</body>

@@ -85,8 +85,9 @@ for x in root[0]:
 
 df = pd.DataFrame([table_dict])
 dfs = pd.concat([df, gdf], axis=1, )
-print(dfs.head())
-# df2 = dfs.set_index(df.columns.tolist())
+# print(dfs.style.set_table_styles(axis=1,))
+# dfs.set_index(dfs.columns.tolist())
+
 # print(df.columns.tolist())
 template = """"
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -101,15 +102,15 @@ template = """"
 %s
 </body>
 """
-classes = 'table table-success table-bordered table-hover table-sm'
+classes = 'table table-responsive table-success table-bordered table-hover table-sm'
 html = template % dfs.to_html(classes=classes)
 
 file_name = 'Alexei - bbbronzebeach2.html'
 with open(file_name, 'w') as f:
     f.write(html)
 f.close()
-# dfs.to_html('123PRESETS SunKissed V4.html', na_rep='', notebook=True, justify='center',
-#             classes=["table-bordered", "table-striped", "table-hover"])
+# dfs.to_html('Alexei - bbbronzebeach2.html', na_rep='', notebook=True, justify='center',
+#             classes=["table-bordered","table-responsive", "table-striped", "table-hover"])
 # ==================
 
 
@@ -158,3 +159,35 @@ crs:LuminanceAdjustmentBlue="0"
 crs:LuminanceAdjustmentPurple="0"
 crs:LuminanceAdjustmentMagenta="0"
 '''
+
+import jinja2
+
+
+def render_html(coloumn_names, coloumn_values):
+    """
+    Render html page using jinja
+    """
+    template_loader = jinja2.FileSystemLoader(searchpath="./")
+    template_env = jinja2.Environment(loader=template_loader)
+    template_file = "index.html"
+    template = template_env.get_template(template_file)
+    output_text = template.render(
+        coloumn_names=coloumn_names,
+        coloumn_values=coloumn_values,
+        # address=row.Address,
+        # date=get_date(),
+        # invoice=row.Invoice,
+        # item=row.Item,
+        # amount=row.Cost
+    )
+
+    # html_path = f'{row.Name}.html'
+    html_path = f'haha.html'
+    html_file = open(html_path, 'w')
+    html_file.write(output_text)
+    html_file.close()
+
+
+render_html(dfs.columns.tolist(), dfs.to_dict())
+for k, v in dfs.to_dict().items():
+    print(v)
