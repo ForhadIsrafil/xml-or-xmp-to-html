@@ -9,7 +9,7 @@ import glob
 import pandas as pd
 import jinja2
 
-def render_html(coloumn_names, coloumn_values, color_arr):
+def render_html(coloumn_values, color_arr):
     """
     Render html page using jinja
     """
@@ -18,7 +18,7 @@ def render_html(coloumn_names, coloumn_values, color_arr):
     template_file = "index.html"
     template = template_env.get_template(template_file)
     output_text = template.render(
-        coloumn_names=coloumn_names,
+        # coloumn_names=coloumn_names,
         coloumn_values=coloumn_values,
         color_arr=color_arr,
         # address=row.Address,
@@ -49,21 +49,21 @@ for name in glob.glob('xmp_files/*.xmp', recursive=True):
         [elem.tag for elem in root.iter() if 'li' not in elem.tag and 'Seq' not in elem.tag and 'Alt' not in elem.tag][
         2:])
     # print(elements_count)
+    # todo: get second part data
     group_dict = {}
     for el_no in range(elements_count - 1):
         # print(len(list(root[0][0][el_no].iter())[2:]))
         if len(list(root[0][0][el_no].iter())[2:]) > 1:
             values = ''
-
             for i in list(root[0][0][el_no].iter())[2:]:
                 # print(list(root[0][0][el_no].iter()))
                 # print(i.tag, i.text, i.attrib)
                 # print(type(i.text))
                 if i.text is None or i.text != '':
                     # pass
-                    print(root[0][0][el_no].tag.split('}')[1], i.text)
+                    # print(root[0][0][el_no].tag.split('}')[1], i.text)
                     values += i.text
-                    print(values)
+                    # print(values)
             group_dict.update({root[0][0][el_no].tag.split('}')[1]: values})
         else:
             for i in list(root[0][0][el_no].iter())[2:]:
@@ -72,12 +72,12 @@ for name in glob.glob('xmp_files/*.xmp', recursive=True):
                 # print(type(i.text))
                 if i.text is None or i.text != '':
                     # pass
-                    print(root[0][0][el_no].tag.split('}')[1], i.text)
+                    # print(root[0][0][el_no].tag.split('}')[1], i.text)
                     group_dict.update({root[0][0][el_no].tag.split('}')[1]: i.text})
 
-    print(group_dict)
+    # print(group_dict)
     gdf = pd.DataFrame([group_dict])
-    gdf.to_html('demo.html', na_rep='')
+    # gdf.to_html('demo.html', na_rep='')
     # second_part = {}
     # for elem in root.iter():
     #     if 'Look' in elem.tag:
@@ -93,6 +93,7 @@ for name in glob.glob('xmp_files/*.xmp', recursive=True):
     #     print(i.text)
 
     # ==================
+    # todo: get first part data
     table_dict = {}
     for x in root[0]:
         # print('one')
@@ -139,7 +140,7 @@ for name in glob.glob('xmp_files/*.xmp', recursive=True):
     for c in range(color_length):
         r = lambda: random.randint(100, 200)
         color_arr.append('#%02X%02X%02X' % (r(), r(), r()))
-    render_html(dfs.columns.tolist(), dfs.to_dict(), color_arr)
+    render_html(dfs.to_dict(), color_arr)
 
 
 

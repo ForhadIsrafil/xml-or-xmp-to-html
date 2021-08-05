@@ -3,455 +3,563 @@
 
 <body>
 <table border="1" class="dataframe table table-responsive table-success table-bordered table-hover table-sm">
-    <thead>
-    <tr style="text-align: right;">
-        
-        <th>about</th>
-        
-        <th>Version</th>
-        
-        <th>ProcessVersion</th>
-        
-        <th>WhiteBalance</th>
-        
-        <th>IncrementalTemperature</th>
-        
-        <th>IncrementalTint</th>
-        
-        <th>Exposure2012</th>
-        
-        <th>Contrast2012</th>
-        
-        <th>Highlights2012</th>
-        
-        <th>Shadows2012</th>
-        
-        <th>Whites2012</th>
-        
-        <th>Blacks2012</th>
-        
-        <th>Texture</th>
-        
-        <th>Clarity2012</th>
-        
-        <th>Dehaze</th>
-        
-        <th>Vibrance</th>
-        
-        <th>Saturation</th>
-        
-        <th>ParametricShadows</th>
-        
-        <th>ParametricDarks</th>
-        
-        <th>ParametricLights</th>
-        
-        <th>ParametricHighlights</th>
-        
-        <th>ParametricShadowSplit</th>
-        
-        <th>ParametricMidtoneSplit</th>
-        
-        <th>ParametricHighlightSplit</th>
-        
-        <th>Sharpness</th>
-        
-        <th>SharpenRadius</th>
-        
-        <th>SharpenDetail</th>
-        
-        <th>SharpenEdgeMasking</th>
-        
-        <th>LuminanceSmoothing</th>
-        
-        <th>ColorNoiseReduction</th>
-        
-        <th>ColorNoiseReductionDetail</th>
-        
-        <th>ColorNoiseReductionSmoothness</th>
-        
-        <th>HueAdjustmentRed</th>
-        
-        <th>HueAdjustmentOrange</th>
-        
-        <th>HueAdjustmentYellow</th>
-        
-        <th>HueAdjustmentGreen</th>
-        
-        <th>HueAdjustmentAqua</th>
-        
-        <th>HueAdjustmentBlue</th>
-        
-        <th>HueAdjustmentPurple</th>
-        
-        <th>HueAdjustmentMagenta</th>
-        
-        <th>SaturationAdjustmentRed</th>
-        
-        <th>SaturationAdjustmentOrange</th>
-        
-        <th>SaturationAdjustmentYellow</th>
-        
-        <th>SaturationAdjustmentGreen</th>
-        
-        <th>SaturationAdjustmentAqua</th>
-        
-        <th>SaturationAdjustmentBlue</th>
-        
-        <th>SaturationAdjustmentPurple</th>
-        
-        <th>SaturationAdjustmentMagenta</th>
-        
-        <th>LuminanceAdjustmentRed</th>
-        
-        <th>LuminanceAdjustmentOrange</th>
-        
-        <th>LuminanceAdjustmentYellow</th>
-        
-        <th>LuminanceAdjustmentGreen</th>
-        
-        <th>LuminanceAdjustmentAqua</th>
-        
-        <th>LuminanceAdjustmentBlue</th>
-        
-        <th>LuminanceAdjustmentPurple</th>
-        
-        <th>LuminanceAdjustmentMagenta</th>
-        
-        <th>SplitToningShadowHue</th>
-        
-        <th>SplitToningShadowSaturation</th>
-        
-        <th>SplitToningHighlightHue</th>
-        
-        <th>SplitToningHighlightSaturation</th>
-        
-        <th>SplitToningBalance</th>
-        
-        <th>ColorGradeMidtoneHue</th>
-        
-        <th>ColorGradeMidtoneSat</th>
-        
-        <th>ColorGradeShadowLum</th>
-        
-        <th>ColorGradeMidtoneLum</th>
-        
-        <th>ColorGradeHighlightLum</th>
-        
-        <th>ColorGradeBlending</th>
-        
-        <th>ColorGradeGlobalHue</th>
-        
-        <th>ColorGradeGlobalSat</th>
-        
-        <th>ColorGradeGlobalLum</th>
-        
-        <th>AutoLateralCA</th>
-        
-        <th>LensProfileEnable</th>
-        
-        <th>LensManualDistortionAmount</th>
-        
-        <th>VignetteAmount</th>
-        
-        <th>DefringePurpleAmount</th>
-        
-        <th>DefringePurpleHueLo</th>
-        
-        <th>DefringePurpleHueHi</th>
-        
-        <th>DefringeGreenAmount</th>
-        
-        <th>DefringeGreenHueLo</th>
-        
-        <th>DefringeGreenHueHi</th>
-        
-        <th>PerspectiveUpright</th>
-        
-        <th>PerspectiveVertical</th>
-        
-        <th>PerspectiveHorizontal</th>
-        
-        <th>PerspectiveRotate</th>
-        
-        <th>PerspectiveAspect</th>
-        
-        <th>PerspectiveScale</th>
-        
-        <th>PerspectiveX</th>
-        
-        <th>PerspectiveY</th>
-        
-        <th>GrainAmount</th>
-        
-        <th>GrainSize</th>
-        
-        <th>GrainFrequency</th>
-        
-        <th>PostCropVignetteAmount</th>
-        
-        <th>ShadowTint</th>
-        
-        <th>RedHue</th>
-        
-        <th>RedSaturation</th>
-        
-        <th>GreenHue</th>
-        
-        <th>GreenSaturation</th>
-        
-        <th>BlueHue</th>
-        
-        <th>BlueSaturation</th>
-        
-        <th>ConvertToGrayscale</th>
-        
-        <th>OverrideLookVignette</th>
-        
-        <th>ToneCurveName2012</th>
-        
-        <th>CameraProfile</th>
-        
-        <th>GrainSeed</th>
-        
-        <th>HasSettings</th>
-        
-        <th>HasCrop</th>
-        
-        <th>ToneCurvePV2012</th>
-        
-        <th>ToneCurvePV2012Red</th>
-        
-        <th>ToneCurvePV2012Green</th>
-        
-        <th>ToneCurvePV2012Blue</th>
-        
-    </tr>
-    </thead>
+    <!--    <thead>-->
+    <!--    -->
+
+    <!--    </thead>-->
     <tbody>
+    
     <tr>
-        
-        <td class="text-light" bgcolor="#6D6973"></td>
-        
-        <td class="text-light" bgcolor="#BCAD78">13.3</td>
-        
-        <td class="text-light" bgcolor="#C29067">11.0</td>
-        
-        <td class="text-light" bgcolor="#65A7B0">Custom</td>
-        
-        <td class="text-light" bgcolor="#A87A88">+14</td>
-        
-        <td class="text-light" bgcolor="#6DA1B4">+6</td>
-        
-        <td class="text-light" bgcolor="#C29067">0.00</td>
-        
-        <td class="text-light" bgcolor="#6B7E8A">+10</td>
-        
-        <td class="text-light" bgcolor="#BFB6A8">-57</td>
-        
-        <td class="text-light" bgcolor="#A4936B">+41</td>
-        
-        <td class="text-light" bgcolor="#6B7E8A">-18</td>
-        
-        <td class="text-light" bgcolor="#7ABC8B">+80</td>
-        
-        <td class="text-light" bgcolor="#A19188">0</td>
-        
-        <td class="text-light" bgcolor="#94739C">+14</td>
-        
-        <td class="text-light" bgcolor="#B0859F">0</td>
-        
-        <td class="text-light" bgcolor="#9D8FC1">-10</td>
-        
-        <td class="text-light" bgcolor="#68B182">-14</td>
-        
-        <td class="text-light" bgcolor="#7CA16E">+19</td>
-        
-        <td class="text-light" bgcolor="#ACAF73">+7</td>
-        
-        <td class="text-light" bgcolor="#7ABC8B">-59</td>
-        
-        <td class="text-light" bgcolor="#957D73">+15</td>
-        
-        <td class="text-light" bgcolor="#B99868">25</td>
-        
-        <td class="text-light" bgcolor="#B3A791">50</td>
-        
-        <td class="text-light" bgcolor="#C86C74">75</td>
-        
-        <td class="text-light" bgcolor="#91B281">36</td>
-        
-        <td class="text-light" bgcolor="#8AAABE">+1.0</td>
-        
-        <td class="text-light" bgcolor="#BA849A">25</td>
-        
-        <td class="text-light" bgcolor="#7B93C3">0</td>
-        
-        <td class="text-light" bgcolor="#727B75">0</td>
-        
-        <td class="text-light" bgcolor="#A6BE9D">25</td>
-        
-        <td class="text-light" bgcolor="#AF707F">50</td>
-        
-        <td class="text-light" bgcolor="#C293C7">50</td>
-        
-        <td class="text-light" bgcolor="#B7A86F">0</td>
-        
-        <td class="text-light" bgcolor="#A6BE9D">-4</td>
-        
-        <td class="text-light" bgcolor="#A4BBAB">-38</td>
-        
-        <td class="text-light" bgcolor="#BE7C79">+100</td>
-        
-        <td class="text-light" bgcolor="#6D6973">+17</td>
-        
-        <td class="text-light" bgcolor="#787AC1">-31</td>
-        
-        <td class="text-light" bgcolor="#ACAF73">-72</td>
-        
-        <td class="text-light" bgcolor="#BCAD66">0</td>
-        
-        <td class="text-light" bgcolor="#A29E6A">-11</td>
-        
-        <td class="text-light" bgcolor="#A16F70">-37</td>
-        
-        <td class="text-light" bgcolor="#99C4BB">-66</td>
-        
-        <td class="text-light" bgcolor="#A6678A">-26</td>
-        
-        <td class="text-light" bgcolor="#BFB6A8">-4</td>
-        
-        <td class="text-light" bgcolor="#AF999D">+50</td>
-        
-        <td class="text-light" bgcolor="#AE809F">0</td>
-        
-        <td class="text-light" bgcolor="#7772AE">0</td>
-        
-        <td class="text-light" bgcolor="#C29067">0</td>
-        
-        <td class="text-light" bgcolor="#6D6973">-20</td>
-        
-        <td class="text-light" bgcolor="#65A7B0">+23</td>
-        
-        <td class="text-light" bgcolor="#B3A791">-9</td>
-        
-        <td class="text-light" bgcolor="#C789B2">0</td>
-        
-        <td class="text-light" bgcolor="#AA92AD">+80</td>
-        
-        <td class="text-light" bgcolor="#C0A3AA">+27</td>
-        
-        <td class="text-light" bgcolor="#6E6AB3">0</td>
-        
-        <td class="text-light" bgcolor="#C29067">0</td>
-        
-        <td class="text-light" bgcolor="#7D77C4">17</td>
-        
-        <td class="text-light" bgcolor="#7CA16E">21</td>
-        
-        <td class="text-light" bgcolor="#7DA8A4">8</td>
-        
-        <td class="text-light" bgcolor="#AFA58A">+82</td>
-        
-        <td class="text-light" bgcolor="#787AC1">0</td>
-        
-        <td class="text-light" bgcolor="#8B7674">0</td>
-        
-        <td class="text-light" bgcolor="#8DA1AE">0</td>
-        
-        <td class="text-light" bgcolor="#BE7C79">0</td>
-        
-        <td class="text-light" bgcolor="#BE7C79">0</td>
-        
-        <td class="text-light" bgcolor="#778783">100</td>
-        
-        <td class="text-light" bgcolor="#B3A791">0</td>
-        
-        <td class="text-light" bgcolor="#7B93C3">0</td>
-        
-        <td class="text-light" bgcolor="#7D77C4">0</td>
-        
-        <td class="text-light" bgcolor="#C0A3AA">0</td>
-        
-        <td class="text-light" bgcolor="#898B7E">0</td>
-        
-        <td class="text-light" bgcolor="#BF6493">0</td>
-        
-        <td class="text-light" bgcolor="#A37964">0</td>
-        
-        <td class="text-light" bgcolor="#BF6493">0</td>
-        
-        <td class="text-light" bgcolor="#C7A57E">30</td>
-        
-        <td class="text-light" bgcolor="#C86C74">70</td>
-        
-        <td class="text-light" bgcolor="#91B281">0</td>
-        
-        <td class="text-light" bgcolor="#C29067">40</td>
-        
-        <td class="text-light" bgcolor="#B0A176">60</td>
-        
-        <td class="text-light" bgcolor="#83AEA3">0</td>
-        
-        <td class="text-light" bgcolor="#778783">0</td>
-        
-        <td class="text-light" bgcolor="#A6678A">0</td>
-        
-        <td class="text-light" bgcolor="#83AEA3">0.0</td>
-        
-        <td class="text-light" bgcolor="#6B7E8A">0</td>
-        
-        <td class="text-light" bgcolor="#AFC680">100</td>
-        
-        <td class="text-light" bgcolor="#92A0B2">0.00</td>
-        
-        <td class="text-light" bgcolor="#C789B2">0.00</td>
-        
-        <td class="text-light" bgcolor="#6D6973">6</td>
-        
-        <td class="text-light" bgcolor="#6D8CB2">70</td>
-        
-        <td class="text-light" bgcolor="#AEC88E">50</td>
-        
-        <td class="text-light" bgcolor="#BEC578">0</td>
-        
-        <td class="text-light" bgcolor="#7B93C3">+32</td>
-        
-        <td class="text-light" bgcolor="#C57879">+18</td>
-        
-        <td class="text-light" bgcolor="#A37964">-14</td>
-        
-        <td class="text-light" bgcolor="#8D806E">+23</td>
-        
-        <td class="text-light" bgcolor="#A4936B">+25</td>
-        
-        <td class="text-light" bgcolor="#7A87B5">-5</td>
-        
-        <td class="text-light" bgcolor="#C86C74">-10</td>
-        
-        <td class="text-light" bgcolor="#C7A57E">False</td>
-        
-        <td class="text-light" bgcolor="#726E9B">False</td>
-        
-        <td class="text-light" bgcolor="#A37964">Custom</td>
-        
-        <td class="text-light" bgcolor="#96ADBC">Default Color</td>
-        
-        <td class="text-light" bgcolor="#92A0B2">3978888820</td>
-        
-        <td class="text-light" bgcolor="#92A0B2">True</td>
-        
-        <td class="text-light" bgcolor="#8288C0">False</td>
-        
-        <td class="text-light" bgcolor="#BFB6A8">0, 070, 60186, 181255, 255</td>
-        
-        <td class="text-light" bgcolor="#9F826C">0, 040, 1284, 58124, 123186, 196255, 255</td>
-        
-        <td class="text-light" bgcolor="#929B68">0, 040, 1483, 59124, 126172, 185255, 255</td>
-        
-        <td class="text-light" bgcolor="#A6BE9D">0, 039, 1387, 65123, 124183, 197255, 255</td>
-        
+        <td class="text-light" bgcolor="#9480B1">about</td>
+        <td class="text-center fa-bold"></td>
     </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#A874B0">Version</td>
+        <td class="text-center fa-bold">13.3</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#9AAB79">ProcessVersion</td>
+        <td class="text-center fa-bold">11.0</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#7CB7AB">WhiteBalance</td>
+        <td class="text-center fa-bold">Custom</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#867D7D">IncrementalTemperature</td>
+        <td class="text-center fa-bold">+14</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#85B171">IncrementalTint</td>
+        <td class="text-center fa-bold">+6</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#8EA7B8">Exposure2012</td>
+        <td class="text-center fa-bold">0.00</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#B99BBB">Contrast2012</td>
+        <td class="text-center fa-bold">+10</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#B1A1B2">Highlights2012</td>
+        <td class="text-center fa-bold">-57</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#BB728A">Shadows2012</td>
+        <td class="text-center fa-bold">+41</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#8B7877">Whites2012</td>
+        <td class="text-center fa-bold">-18</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#8E6F8C">Blacks2012</td>
+        <td class="text-center fa-bold">+80</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#93C198">Texture</td>
+        <td class="text-center fa-bold">0</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#9BB8C0">Clarity2012</td>
+        <td class="text-center fa-bold">+14</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#93C198">Dehaze</td>
+        <td class="text-center fa-bold">0</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#88B76A">Vibrance</td>
+        <td class="text-center fa-bold">-10</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#8C7EB2">Saturation</td>
+        <td class="text-center fa-bold">-14</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#827C7A">ParametricShadows</td>
+        <td class="text-center fa-bold">+19</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#6866C2">ParametricDarks</td>
+        <td class="text-center fa-bold">+7</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#8DBEB2">ParametricLights</td>
+        <td class="text-center fa-bold">-59</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#9BB8C0">ParametricHighlights</td>
+        <td class="text-center fa-bold">+15</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#A9A970">ParametricShadowSplit</td>
+        <td class="text-center fa-bold">25</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#6B65B3">ParametricMidtoneSplit</td>
+        <td class="text-center fa-bold">50</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#9FBB95">ParametricHighlightSplit</td>
+        <td class="text-center fa-bold">75</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#6BBA9A">Sharpness</td>
+        <td class="text-center fa-bold">36</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#6AA3AE">SharpenRadius</td>
+        <td class="text-center fa-bold">+1.0</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#9FBB95">SharpenDetail</td>
+        <td class="text-center fa-bold">25</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#78A07C">SharpenEdgeMasking</td>
+        <td class="text-center fa-bold">0</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#66B89C">LuminanceSmoothing</td>
+        <td class="text-center fa-bold">0</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#66C183">ColorNoiseReduction</td>
+        <td class="text-center fa-bold">25</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#C29685">ColorNoiseReductionDetail</td>
+        <td class="text-center fa-bold">50</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#9F6FC4">ColorNoiseReductionSmoothness</td>
+        <td class="text-center fa-bold">50</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#6866C2">HueAdjustmentRed</td>
+        <td class="text-center fa-bold">0</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#93C198">HueAdjustmentOrange</td>
+        <td class="text-center fa-bold">-4</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#9AAB79">HueAdjustmentYellow</td>
+        <td class="text-center fa-bold">-38</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#74B1A7">HueAdjustmentGreen</td>
+        <td class="text-center fa-bold">+100</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#88B76A">HueAdjustmentAqua</td>
+        <td class="text-center fa-bold">+17</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#6FB4B4">HueAdjustmentBlue</td>
+        <td class="text-center fa-bold">-31</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#91B798">HueAdjustmentPurple</td>
+        <td class="text-center fa-bold">-72</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#BEA296">HueAdjustmentMagenta</td>
+        <td class="text-center fa-bold">0</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#A073C3">SaturationAdjustmentRed</td>
+        <td class="text-center fa-bold">-11</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#7CB7AB">SaturationAdjustmentOrange</td>
+        <td class="text-center fa-bold">-37</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#C29FC5">SaturationAdjustmentYellow</td>
+        <td class="text-center fa-bold">-66</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#7CB7AB">SaturationAdjustmentGreen</td>
+        <td class="text-center fa-bold">-26</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#C29FC5">SaturationAdjustmentAqua</td>
+        <td class="text-center fa-bold">-4</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#A68BC0">SaturationAdjustmentBlue</td>
+        <td class="text-center fa-bold">+50</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#9FBB95">SaturationAdjustmentPurple</td>
+        <td class="text-center fa-bold">0</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#B8706A">SaturationAdjustmentMagenta</td>
+        <td class="text-center fa-bold">0</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#867D7D">LuminanceAdjustmentRed</td>
+        <td class="text-center fa-bold">0</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#66B89C">LuminanceAdjustmentOrange</td>
+        <td class="text-center fa-bold">-20</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#66B89C">LuminanceAdjustmentYellow</td>
+        <td class="text-center fa-bold">+23</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#78A186">LuminanceAdjustmentGreen</td>
+        <td class="text-center fa-bold">-9</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#8E68BB">LuminanceAdjustmentAqua</td>
+        <td class="text-center fa-bold">0</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#9A656F">LuminanceAdjustmentBlue</td>
+        <td class="text-center fa-bold">+80</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#C1728E">LuminanceAdjustmentPurple</td>
+        <td class="text-center fa-bold">+27</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#6F8264">LuminanceAdjustmentMagenta</td>
+        <td class="text-center fa-bold">0</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#946AA9">SplitToningShadowHue</td>
+        <td class="text-center fa-bold">0</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#BA916A">SplitToningShadowSaturation</td>
+        <td class="text-center fa-bold">17</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#AD65C1">SplitToningHighlightHue</td>
+        <td class="text-center fa-bold">21</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#849D93">SplitToningHighlightSaturation</td>
+        <td class="text-center fa-bold">8</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#C6AC89">SplitToningBalance</td>
+        <td class="text-center fa-bold">+82</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#A9A970">ColorGradeMidtoneHue</td>
+        <td class="text-center fa-bold">0</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#7CB1A5">ColorGradeMidtoneSat</td>
+        <td class="text-center fa-bold">0</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#8B7877">ColorGradeShadowLum</td>
+        <td class="text-center fa-bold">0</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#9480B1">ColorGradeMidtoneLum</td>
+        <td class="text-center fa-bold">0</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#B568B4">ColorGradeHighlightLum</td>
+        <td class="text-center fa-bold">0</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#B1A1B2">ColorGradeBlending</td>
+        <td class="text-center fa-bold">100</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#C6659A">ColorGradeGlobalHue</td>
+        <td class="text-center fa-bold">0</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#74B1A7">ColorGradeGlobalSat</td>
+        <td class="text-center fa-bold">0</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#C29685">ColorGradeGlobalLum</td>
+        <td class="text-center fa-bold">0</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#C36777">AutoLateralCA</td>
+        <td class="text-center fa-bold">0</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#826F93">LensProfileEnable</td>
+        <td class="text-center fa-bold">0</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#99C8AC">LensManualDistortionAmount</td>
+        <td class="text-center fa-bold">0</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#6AA3AE">VignetteAmount</td>
+        <td class="text-center fa-bold">0</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#A9928E">DefringePurpleAmount</td>
+        <td class="text-center fa-bold">0</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#BB6E78">DefringePurpleHueLo</td>
+        <td class="text-center fa-bold">30</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#B1A1B2">DefringePurpleHueHi</td>
+        <td class="text-center fa-bold">70</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#BEA584">DefringeGreenAmount</td>
+        <td class="text-center fa-bold">0</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#AF9787">DefringeGreenHueLo</td>
+        <td class="text-center fa-bold">40</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#9BB8C0">DefringeGreenHueHi</td>
+        <td class="text-center fa-bold">60</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#ABC07A">PerspectiveUpright</td>
+        <td class="text-center fa-bold">0</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#B9A165">PerspectiveVertical</td>
+        <td class="text-center fa-bold">0</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#9A656F">PerspectiveHorizontal</td>
+        <td class="text-center fa-bold">0</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#6F8264">PerspectiveRotate</td>
+        <td class="text-center fa-bold">0.0</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#849D93">PerspectiveAspect</td>
+        <td class="text-center fa-bold">0</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#869787">PerspectiveScale</td>
+        <td class="text-center fa-bold">100</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#9BB8C0">PerspectiveX</td>
+        <td class="text-center fa-bold">0.00</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#849D93">PerspectiveY</td>
+        <td class="text-center fa-bold">0.00</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#89A777">GrainAmount</td>
+        <td class="text-center fa-bold">6</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#C36777">GrainSize</td>
+        <td class="text-center fa-bold">70</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#6BBA9A">GrainFrequency</td>
+        <td class="text-center fa-bold">50</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#C6AC89">PostCropVignetteAmount</td>
+        <td class="text-center fa-bold">0</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#AEC8AA">ShadowTint</td>
+        <td class="text-center fa-bold">+32</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#C76DB2">RedHue</td>
+        <td class="text-center fa-bold">+18</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#78A186">RedSaturation</td>
+        <td class="text-center fa-bold">-14</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#78A186">GreenHue</td>
+        <td class="text-center fa-bold">+23</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#AF9787">GreenSaturation</td>
+        <td class="text-center fa-bold">+25</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#9A9E79">BlueHue</td>
+        <td class="text-center fa-bold">-5</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#9BB8C0">BlueSaturation</td>
+        <td class="text-center fa-bold">-10</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#6B65B3">ConvertToGrayscale</td>
+        <td class="text-center fa-bold">False</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#B99BBB">OverrideLookVignette</td>
+        <td class="text-center fa-bold">False</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#826F93">ToneCurveName2012</td>
+        <td class="text-center fa-bold">Custom</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#80B2C3">CameraProfile</td>
+        <td class="text-center fa-bold">Default Color</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#C1728E">GrainSeed</td>
+        <td class="text-center fa-bold">3978888820</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#88B76A">HasSettings</td>
+        <td class="text-center fa-bold">True</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#C1728E">HasCrop</td>
+        <td class="text-center fa-bold">False</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#74B1A7">ToneCurvePV2012</td>
+        <td class="text-center fa-bold">0, 070, 60186, 181255, 255</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#ABC07A">ToneCurvePV2012Red</td>
+        <td class="text-center fa-bold">0, 040, 1284, 58124, 123186, 196255, 255</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#86999F">ToneCurvePV2012Green</td>
+        <td class="text-center fa-bold">0, 040, 1483, 59124, 126172, 185255, 255</td>
+    </tr>
+    
+    <tr>
+        <td class="text-light" bgcolor="#86999F">ToneCurvePV2012Blue</td>
+        <td class="text-center fa-bold">0, 039, 1387, 65123, 124183, 197255, 255</td>
+    </tr>
+    
+
     </tbody>
 </table>
 <!--<script>-->

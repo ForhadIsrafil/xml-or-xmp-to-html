@@ -3,19 +3,22 @@
 
 <body>
 <table border="1" class="dataframe table table-responsive table-success table-bordered table-hover table-sm">
-    <thead>
-    <tr style="text-align: right;">
-        {% for coloumn_name in coloumn_names %}
-        <th>{{ coloumn_name }}</th>
-        {% endfor %}
-    </tr>
-    </thead>
+    <!--    <thead>-->
+    <!--    {% for coloumn_name in coloumn_names %}-->
+    <!--    <tr style="text-align: right;">-->
+    <!--        <th>{{ coloumn_name }}</th>-->
+    <!--    </tr>-->
+    <!--    {% endfor %}-->
+
+    <!--    </thead>-->
     <tbody>
+    {% for key, coloumn_value in coloumn_values.items() %}
     <tr>
-        {% for key, coloumn_value in coloumn_values.items() %}
-        <td class="text-light" bgcolor="{{color_arr|random}}">{{ coloumn_value[0] }}</td>
-        {% endfor %}
+        <td class="text-light" bgcolor="{{color_arr|random}}">{{ key }}</td>
+        <td class="text-center fa-bold">{{ coloumn_value[0] }}</td>
     </tr>
+    {% endfor %}
+
     </tbody>
 </table>
 <!--<script>-->
