@@ -1,5 +1,6 @@
 import jinja2
 
+
 def render_html(names):
     """
     Render html page using jinja
@@ -15,7 +16,7 @@ def render_html(names):
         # invoice=row.Invoice,
         # item=row.Item,
         # amount=row.Cost
-        )
+    )
 
     # html_path = f'{row.Name}.html'
     html_path = f'haha.html'
@@ -23,4 +24,7 @@ def render_html(names):
     html_file.write(output_text)
     html_file.close()
 
+
 render_html(['forhad', 'mahabub'])
+
+

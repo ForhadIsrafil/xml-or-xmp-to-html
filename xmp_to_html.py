@@ -4,6 +4,7 @@ from lxml import etree
 import xml.etree.ElementTree as ET
 from xml.dom import minidom
 import xmltodict
+import random
 
 import pandas as pd
 
@@ -163,7 +164,7 @@ crs:LuminanceAdjustmentMagenta="0"
 import jinja2
 
 
-def render_html(coloumn_names, coloumn_values):
+def render_html(coloumn_names, coloumn_values, color_arr):
     """
     Render html page using jinja
     """
@@ -174,6 +175,7 @@ def render_html(coloumn_names, coloumn_values):
     output_text = template.render(
         coloumn_names=coloumn_names,
         coloumn_values=coloumn_values,
+        color_arr=color_arr,
         # address=row.Address,
         # date=get_date(),
         # invoice=row.Invoice,
@@ -187,7 +189,13 @@ def render_html(coloumn_names, coloumn_values):
     html_file.write(output_text)
     html_file.close()
 
+random_colors = ['#00ad8b', '#25b9a9', '#ff3200',]
+color_length = len(dfs.columns.tolist())
+color_arr = []
+for c in range(color_length):
+    r = lambda: random.randint(0,255)
+    color_arr.append('#%02X%02X%02X' % (r(),r(),r()))
+render_html(dfs.columns.tolist(), dfs.to_dict(), color_arr)
 
-render_html(dfs.columns.tolist(), dfs.to_dict())
-for k, v in dfs.to_dict().items():
-    print(v)
+# for k, v in dfs.to_dict().items():
+#     print(v)
