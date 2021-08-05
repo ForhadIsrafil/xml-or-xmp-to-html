@@ -184,7 +184,7 @@ def render_html(coloumn_names, coloumn_values, color_arr):
     )
 
     # html_path = f'{row.Name}.html'
-    html_path = f'haha.html'
+    html_path = f'Alexei - bbbronzebeach2.html'
     html_file = open(html_path, 'w')
     html_file.write(output_text)
     html_file.close()
