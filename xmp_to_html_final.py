@@ -9,6 +9,9 @@ import glob
 import pandas as pd
 import jinja2
 
+group_df = pd.read_csv('XMP.csv')
+
+
 def render_html(coloumn_values, color_arr):
     """
     Render html page using jinja
@@ -34,11 +37,11 @@ def render_html(coloumn_values, color_arr):
     html_file.write(output_text)
     html_file.close()
 
+
 for name in glob.glob('xmp_files/*.xmp', recursive=True):
     file_name = name.split('\\')[1].split('.')[0] + '.html'
     print(file_name)
     tree = ET.parse(name)
-
 
     # tree = ET.parse("xmp_files/Alexei - bbbronzebeach2.xmp")
 
@@ -58,14 +61,17 @@ for name in glob.glob('xmp_files/*.xmp', recursive=True):
             for i in list(root[0][0][el_no].iter())[2:]:
                 # print(list(root[0][0][el_no].iter()))
                 # print(i.tag, i.text, i.attrib)
+                # print(root[0][0][el_no].tag.split('}')[1])
                 # print(type(i.text))
                 if i.text is None or i.text != '':
                     # pass
                     # print(root[0][0][el_no].tag.split('}')[1], i.text)
                     values += i.text
                     # print(values)
-            group_dict.update({root[0][0][el_no].tag.split('}')[1]: values})
+            group_name = group = group_df[group_df['Tag'] == root[0][0][el_no].tag.split('}')[1]]['Group'].values[0]
+            group_dict.update({root[0][0][el_no].tag.split('}')[1]: values, 'Group': group_name})
         else:
+            # print(root[0][0][el_no].tag.split('}')[1])
             for i in list(root[0][0][el_no].iter())[2:]:
                 # print(list(root[0][0][el_no].iter()))
                 # print(i.tag, i.text, i.attrib)
@@ -73,7 +79,9 @@ for name in glob.glob('xmp_files/*.xmp', recursive=True):
                 if i.text is None or i.text != '':
                     # pass
                     # print(root[0][0][el_no].tag.split('}')[1], i.text)
-                    group_dict.update({root[0][0][el_no].tag.split('}')[1]: i.text})
+                    group_name = group = \
+                        group_df[group_df['Tag'] == root[0][0][el_no].tag.split('}')[1]]['Group'].values[0]
+                    group_dict.update({root[0][0][el_no].tag.split('}')[1]: i.text, 'Group': group_name})
 
     # print(group_dict)
     gdf = pd.DataFrame([group_dict])
@@ -98,54 +106,57 @@ for name in glob.glob('xmp_files/*.xmp', recursive=True):
     for x in root[0]:
         # print('one')
         # print(x.tag, x.attrib, x.text)
+        # print(x.tag)
         for key, value in x.attrib.items():
             # print(key, value)
-
-            # print(key.split('}')[1], value)
+            # print(key.split('}')[1])
             temp = {}
-            temp[key.split('}')[1]] = value
-            table_dict.update(temp)
+            # print(key.split('}')[1], value)
+            try:
+                group_name = group = \
+                    group_df[group_df['Tag'] == key.split('}')[1]]['Group'].values[0]
+                temp[key.split('}')[1]] = value
+                temp['Group'] = group_name
+                table_dict.update(temp)
+            except Exception as e:
+                temp[key.split('}')[1]] = value
+                temp['Group'] = ''
 
-    df = pd.DataFrame([table_dict])
-    dfs = pd.concat([df, gdf], axis=1, )
-    # print(dfs.style.set_table_styles(axis=1,))
-    # dfs.set_index(dfs.columns.tolist())
+df = pd.DataFrame([table_dict])
+dfs = pd.concat([df, gdf], axis=1, )
+# print(dfs.style.set_table_styles(axis=1,))
+# dfs.set_index(dfs.columns.tolist())
 
-    # print(df.columns.tolist())
-    # template = """"
-    # <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    # # <style>
-    # # th {
-    # #     background: red;
-    # #     color: black;
-    # #     text-align: left;
-    # # }
-    # # </style>
-    # <body>
-    # %s
-    # </body>
-    # """
-    # classes = 'table table-responsive table-success table-bordered table-hover table-sm'
-    # html = template % dfs.to_html(classes=classes)
-    #
-    # with open(file_name, 'w') as f:
-    #     f.write(html)
-    # f.close()
-    # dfs.to_html('Alexei - bbbronzebeach2.html', na_rep='', notebook=True, justify='center',
-    #             classes=["table-bordered","table-responsive", "table-striped", "table-hover"])
-    # ==================
-    random_colors = ['#00ad8b', '#25b9a9', '#ff3200', ]
-    color_length = len(dfs.columns.tolist())
-    color_arr = []
-    for c in range(color_length):
-        r = lambda: random.randint(100, 200)
-        color_arr.append('#%02X%02X%02X' % (r(), r(), r()))
-    render_html(dfs.to_dict(), color_arr)
-
-
-
-
-
+# print(df.columns.tolist())
+# template = """"
+# <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+# # <style>
+# # th {
+# #     background: red;
+# #     color: black;
+# #     text-align: left;
+# # }
+# # </style>
+# <body>
+# %s
+# </body>
+# """
+# classes = 'table table-responsive table-success table-bordered table-hover table-sm'
+# html = template % dfs.to_html(classes=classes)
+#
+# with open(file_name, 'w') as f:
+#     f.write(html)
+# f.close()
+# dfs.to_html('Alexei - bbbronzebeach2.html', na_rep='', notebook=True, justify='center',
+#             classes=["table-bordered","table-responsive", "table-striped", "table-hover"])
+# ==================
+random_colors = ['#00ad8b', '#25b9a9', '#ff3200', ]
+color_length = len(dfs.columns.tolist())
+color_arr = []
+for c in range(color_length):
+    r = lambda: random.randint(100, 200)
+    color_arr.append('#%02X%02X%02X' % (r(), r(), r()))
+render_html(dfs.to_dict(), color_arr)
 
 '''
 1. first part is just key value pairs visible in a table
@@ -192,10 +203,6 @@ crs:LuminanceAdjustmentBlue="0"
 crs:LuminanceAdjustmentPurple="0"
 crs:LuminanceAdjustmentMagenta="0"
 '''
-
-
-
-
 
 # for k, v in dfs.to_dict().items():
 #     print(v)
