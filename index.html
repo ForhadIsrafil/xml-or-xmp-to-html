@@ -2,35 +2,37 @@
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 <body>
-<table border="1" class="dataframe table table-responsive table-success table-bordered table-hover table-sm">
-    <!--    <thead>-->
-    <!--    {% for coloumn_name in coloumn_names %}-->
-    <!--    <tr style="text-align: right;">-->
-    <!--        <th>{{ coloumn_name }}</th>-->
-    <!--    </tr>-->
-    <!--    {% endfor %}-->
+<div class="container">
+    <table border="1" class="dataframe table table-responsive table-success table-bordered table-hover table-sm">
+        <!--    <thead>-->
+        <!--    {% for coloumn_name in coloumn_names %}-->
+        <!--    <tr style="text-align: right;">-->
+        <!--        <th>{{ coloumn_name }}</th>-->
+        <!--    </tr>-->
+        <!--    {% endfor %}-->
 
-    <!--    </thead>-->
-    <tbody>
-    {% for key, coloumn_value in coloumn_values.items() %}
-    <tr>
-        <td class="text-light" bgcolor="{{color_arr|random}}">{{ key }}</td>
-        <td class="text-center fa-bold">{{ coloumn_value[0] }}</td>
-    </tr>
-    {% endfor %}
+        <!--    </thead>-->
+        <tbody>
+        {% for key, coloumn_value in coloumn_values.items() %}
+        <tr>
+            <td class="text-light" bgcolor="{{color_arr|random}}">{{ key }}</td>
+            <td class="text-center fa-bold">{{ coloumn_value[0] }}</td>
+        </tr>
+        {% endfor %}
 
-    </tbody>
-</table>
-<!--<script>-->
-<!--    function generateRandomColor() {-->
-<!--        var letters = '0123456789ABCDEF';-->
-<!--        var color = '#';-->
-<!--        for (var i = 0; i < 6; i++) {-->
-<!--            color += letters[Math.floor(Math.random() * 16)];-->
-<!--        }-->
-<!--        return color;-->
-<!--    }-->
+        </tbody>
+    </table>
+    <!--<script>-->
+    <!--    function generateRandomColor() {-->
+    <!--        var letters = '0123456789ABCDEF';-->
+    <!--        var color = '#';-->
+    <!--        for (var i = 0; i < 6; i++) {-->
+    <!--            color += letters[Math.floor(Math.random() * 16)];-->
+    <!--        }-->
+    <!--        return color;-->
+    <!--    }-->
 
-<!--    // var randomColor = generateRandomColor(); //"#F10531"-->
-<!--</script>-->
+    <!--    // var randomColor = generateRandomColor(); //"#F10531"-->
+    <!--</script>-->
+</div>
 </body>
