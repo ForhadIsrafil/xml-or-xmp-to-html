@@ -1,98 +1,98 @@
-Group,Tag,Value Example,Photoshop Name,
-Basic,WhiteBalance,Custom, White Balance,
-Basic,IncrementalTemperature,+33,Temperature,
-Basic,IncrementalTint,+15,Tint Shadows,
-Basic,Exposure2012,+0.70,Exposure,
-Basic,Contrast2012,+10,Contrast,
-Basic,Highlights2012,+35,Highlights,
-Basic,Shadows2012,+18,Shadows,
-Basic,Whites2012,+32,Whites,
-Basic,Blacks2012,+32,Blacks,
-Basic,Texture,+27,Texture,
-Basic,Clarity2012,+20,Clarity,
-Basic,Dehaze,+37,Dehaze,
-Basic,Vibrance,+27,Vibrance,
-Basic,Saturation,+15,Saturation,
-Curve,ParametricShadows,+21,Parametric Curve Shadows,
-Curve,ParametricDarks,+32,Parametric Curve Darks,
-Curve,ParametricLights,-18,Parametric Curve Lights,
-Curve,ParametricHighlights,+11,Parametric Curve Highlights,
-Curve,ParametricShadowSplit,18,Parametric Curve Shadows Split,
-Curve,ParametricMidtoneSplit,53,Parametric Curve Midtones Split,
-Curve,ParametricHighlightSplit,75,Parametric Curve Highlights Split,
-Curve,ToneCurvePV2012,Array of all points,Point Curve,
-Curve,ToneCurvePV2012Red,Array of all points,Red Channel,
-Curve,ToneCurvePV2012Green,Array of all points,Green Channle,
-Curve,ToneCurvePV2012Blue,Array of all points,Blue Channel,
-Detail,Sharpness,115,Sharpening,
-Detail,SharpenRadius,+1.0,Sharpening Radius,
-Detail,SharpenDetail,25,Sharpening Detail,
-Detail,SharpenEdgeMasking,50,Sharpening Masking,
-Detail,LuminanceSmoothing,41,Noise Reduction,
-Detail,LuminanceNoiseReductionDetail,50,Noise Reduction Detail,
-Detail,LuminanceNoiseReductionContrast,23,Noise Reduction Contrast,
-Detail,ColorNoiseReduction,59,Color Noise Reduction,
-Detail,ColorNoiseReductionDetail,50,Color Noise Reduction Detail,
-Detail,ColorNoiseReductionSmoothness,38,Color Noise Reduction Smoothness,
-Color Mixer,HueAdjustmentRed,+27,Hue Reds,
-Color Mixer,HueAdjustmentOrange,+34,Hue Oranges,
-Color Mixer,HueAdjustmentYellow,+31,Hue Yellows,
-Color Mixer,HueAdjustmentGreen,-25,Hue Greens,
-Color Mixer,HueAdjustmentAqua,-36,Hue Aquas,
-Color Mixer,HueAdjustmentBlue,-42,Hue Blues,
-Color Mixer,HueAdjustmentPurple,-36,Hue Purples,
-Color Mixer,HueAdjustmentMagenta,-21,Hue Magentas,
-Color Mixer,SaturationAdjustmentRed,+23,Saturation Reds,
-Color Mixer,SaturationAdjustmentOrange,+32,Saturation Oranges,
-Color Mixer,SaturationAdjustmentYellow,+32,Saturation Yellows,
-Color Mixer,SaturationAdjustmentGreen,+45,Saturation Greens,
-Color Mixer,SaturationAdjustmentAqua,-23,Saturation Aquas,
-Color Mixer,SaturationAdjustmentBlue,-49,Saturation Blues,
-Color Mixer,SaturationAdjustmentPurple,-17,Saturation Purples,
-Color Mixer,SaturationAdjustmentMagenta,-12,Saturation Magentas,
-Color Mixer,LuminanceAdjustmentRed,+19,Luminance Reds,
-Color Mixer,LuminanceAdjustmentOrange,-36,Luminance Oranges,
-Color Mixer,LuminanceAdjustmentYellow,-34,Luminance Yellows,
-Color Mixer,LuminanceAdjustmentGreen,-28,Luminance Greens,
-Color Mixer,LuminanceAdjustmentAqua,+34,Luminance Aquas,
-Color Mixer,LuminanceAdjustmentBlue,+40,Luminance Blues,
-Color Mixer,LuminanceAdjustmentPurple,-42,Luminance Purples,
-Color Mixer,LuminanceAdjustmentMagenta,-36,Luminance Magentas,
-Color Grading,SplitToningShadowHue,231,Shadows Hue,
-Color Grading,SplitToningShadowSaturation,27,Shadows Saturation,
-Color Grading,SplitToningHighlightHue,39,Highlights Hue,
-Color Grading,SplitToningHighlightSaturation,54,Highlights Saturation,
-Color Grading,SplitToningBalance,-30,Balance,
-Color Grading,ColorGradeMidtoneHue,204,Midtones Hue,
-Color Grading,ColorGradeMidtoneSat,17,Midtones Saturation,
-Color Grading,ColorGradeShadowLum,-20,Shadows Luminance,
-Color Grading,ColorGradeMidtoneLum,-44,Midrtones Luminance,
-Color Grading,ColorGradeHighlightLum,+42,Highlights Luminance,
-Color Grading,ColorGradeBlending,62,Blending,
-Color Grading,ColorGradeGlobalHue,25,Global Hue,
-Color Grading,ColorGradeGlobalSat,32,Global Saturation,
-Color Grading,ColorGradeGlobalLum,-28,Global Luminance,
-Optics,LensManualDistortionAmount,+23,Distortion,
-Optics,VignetteAmount,-32,Vignette,
-Optics,DefringePurpleAmount,4,Purple Amount,
-Optics,DefringePurpleHueLo,30,Purple Hue low,
-Optics,DefringePurpleHueHi,70,Purple Hue high,
-Optics,DefringeGreenAmount,3,Green Amount,
-Optics,DefringeGreenHueLo,40,Green Hue low,
-Optics,DefringeGreenHueHi,60,Green Hue high,
-Effects,GrainAmount,79,Grain,
-Effects,GrainSize,25,Size,
-Effects,GrainFrequency,50,Roughness,
-Effects,PostCropVignetteAmount,-58,Vignetting,
-Effects,PostCropVignetteMidpoint,50,Midpoint,
-Effects,PostCropVignetteFeather,50,Feather,
-Effects,PostCropVignetteRoundness,0,Roundness,
-Effects,PostCropVignetteStyle,1,Style,
-Effects,PostCropVignetteHighlightContrast,0,Highlights,
-Calibration,ShadowTint,+50,Tint Shadows,
-Calibration,RedHue,+36,Red Primary Hue,
-Calibration,RedSaturation,-42,Red Primary Saturation,
-Calibration,GreenHue,-37,Green Primary Hue,
-Calibration,GreenSaturation,+51,Green Primary Saturation,
-Calibration,BlueHue,+40,Blue Primary Hue,
-Calibration,BlueSaturation,-44,Blue Primary Saturation,
+Group,Tag,Value Example,Photoshop Name,Color
+Basic,WhiteBalance,Custom, White Balance,#CD5C5C
+Basic,IncrementalTemperature,33,Temperature,#CD5C5C
+Basic,IncrementalTint,15,Tint Shadows,#CD5C5C
+Basic,Exposure2012,0.7,Exposure,#CD5C5C
+Basic,Contrast2012,10,Contrast,#CD5C5C
+Basic,Highlights2012,35,Highlights,#CD5C5C
+Basic,Shadows2012,18,Shadows,#CD5C5C
+Basic,Whites2012,32,Whites,#CD5C5C
+Basic,Blacks2012,32,Blacks,#CD5C5C
+Basic,Texture,27,Texture,#CD5C5C
+Basic,Clarity2012,20,Clarity,#CD5C5C
+Basic,Dehaze,37,Dehaze,#CD5C5C
+Basic,Vibrance,27,Vibrance,#CD5C5C
+Basic,Saturation,15,Saturation,#CD5C5C
+Curve,ParametricShadows,21,Parametric Curve Shadows,#FFBF0A
+Curve,ParametricDarks,32,Parametric Curve Darks,#FFBF0A
+Curve,ParametricLights,-18,Parametric Curve Lights,#FFBF0A
+Curve,ParametricHighlights,11,Parametric Curve Highlights,#FFBF0A
+Curve,ParametricShadowSplit,18,Parametric Curve Shadows Split,#FFBF0A
+Curve,ParametricMidtoneSplit,53,Parametric Curve Midtones Split,#FFBF0A
+Curve,ParametricHighlightSplit,75,Parametric Curve Highlights Split,#FFBF0A
+Curve,ToneCurvePV2012,Array of all points,Point Curve,#FFBF0A
+Curve,ToneCurvePV2012Red,Array of all points,Red Channel,#FFBF0A
+Curve,ToneCurvePV2012Green,Array of all points,Green Channle,#FFBF0A
+Curve,ToneCurvePV2012Blue,Array of all points,Blue Channel,#FFBF0A
+Detail,Sharpness,115,Sharpening,#9564ED
+Detail,SharpenRadius,1,Sharpening Radius,#9564ED
+Detail,SharpenDetail,25,Sharpening Detail,#9564ED
+Detail,SharpenEdgeMasking,50,Sharpening Masking,#9564ED
+Detail,LuminanceSmoothing,41,Noise Reduction,#9564ED
+Detail,LuminanceNoiseReductionDetail,50,Noise Reduction Detail,#9564ED
+Detail,LuminanceNoiseReductionContrast,23,Noise Reduction Contrast,#9564ED
+Detail,ColorNoiseReduction,59,Color Noise Reduction,#9564ED
+Detail,ColorNoiseReductionDetail,50,Color Noise Reduction Detail,#9564ED
+Detail,ColorNoiseReductionSmoothness,38,Color Noise Reduction Smoothness,#9564ED
+Color Mixer,HueAdjustmentRed,27,Hue Reds,#DE316F
+Color Mixer,HueAdjustmentOrange,34,Hue Oranges,#DE316F
+Color Mixer,HueAdjustmentYellow,31,Hue Yellows,#DE316F
+Color Mixer,HueAdjustmentGreen,-25,Hue Greens,#DE316F
+Color Mixer,HueAdjustmentAqua,-36,Hue Aquas,#DE316F
+Color Mixer,HueAdjustmentBlue,-42,Hue Blues,#DE316F
+Color Mixer,HueAdjustmentPurple,-36,Hue Purples,#DE316F
+Color Mixer,HueAdjustmentMagenta,-21,Hue Magentas,#DE316F
+Color Mixer,SaturationAdjustmentRed,23,Saturation Reds,#DE316F
+Color Mixer,SaturationAdjustmentOrange,32,Saturation Oranges,#DE316F
+Color Mixer,SaturationAdjustmentYellow,32,Saturation Yellows,#DE316F
+Color Mixer,SaturationAdjustmentGreen,45,Saturation Greens,#DE316F
+Color Mixer,SaturationAdjustmentAqua,-23,Saturation Aquas,#DE316F
+Color Mixer,SaturationAdjustmentBlue,-49,Saturation Blues,#DE316F
+Color Mixer,SaturationAdjustmentPurple,-17,Saturation Purples,#DE316F
+Color Mixer,SaturationAdjustmentMagenta,-12,Saturation Magentas,#DE316F
+Color Mixer,LuminanceAdjustmentRed,19,Luminance Reds,#DE316F
+Color Mixer,LuminanceAdjustmentOrange,-36,Luminance Oranges,#DE316F
+Color Mixer,LuminanceAdjustmentYellow,-34,Luminance Yellows,#DE316F
+Color Mixer,LuminanceAdjustmentGreen,-28,Luminance Greens,#DE316F
+Color Mixer,LuminanceAdjustmentAqua,34,Luminance Aquas,#DE316F
+Color Mixer,LuminanceAdjustmentBlue,40,Luminance Blues,#DE316F
+Color Mixer,LuminanceAdjustmentPurple,-42,Luminance Purples,#DE316F
+Color Mixer,LuminanceAdjustmentMagenta,-36,Luminance Magentas,#DE316F
+Color Grading,SplitToningShadowHue,231,Shadows Hue,#9FE2BF
+Color Grading,SplitToningShadowSaturation,27,Shadows Saturation,#9FE2BF
+Color Grading,SplitToningHighlightHue,39,Highlights Hue,#9FE2BF
+Color Grading,SplitToningHighlightSaturation,54,Highlights Saturation,#9FE2BF
+Color Grading,SplitToningBalance,-30,Balance,#9FE2BF
+Color Grading,ColorGradeMidtoneHue,204,Midtones Hue,#9FE2BF
+Color Grading,ColorGradeMidtoneSat,17,Midtones Saturation,#9FE2BF
+Color Grading,ColorGradeShadowLum,-20,Shadows Luminance,#9FE2BF
+Color Grading,ColorGradeMidtoneLum,-44,Midrtones Luminance,#9FE2BF
+Color Grading,ColorGradeHighlightLum,42,Highlights Luminance,#9FE2BF
+Color Grading,ColorGradeBlending,62,Blending,#9FE2BF
+Color Grading,ColorGradeGlobalHue,25,Global Hue,#9FE2BF
+Color Grading,ColorGradeGlobalSat,32,Global Saturation,#9FE2BF
+Color Grading,ColorGradeGlobalLum,-28,Global Luminance,#9FE2BF
+Optics,LensManualDistortionAmount,23,Distortion,#40E0DF
+Optics,VignetteAmount,-32,Vignette,#40E0DF
+Optics,DefringePurpleAmount,4,Purple Amount,#40E0DF
+Optics,DefringePurpleHueLo,30,Purple Hue low,#40E0DF
+Optics,DefringePurpleHueHi,70,Purple Hue high,#40E0DF
+Optics,DefringeGreenAmount,3,Green Amount,#40E0DF
+Optics,DefringeGreenHueLo,40,Green Hue low,#40E0DF
+Optics,DefringeGreenHueHi,60,Green Hue high,#40E0DF
+Effects,GrainAmount,79,Grain,#6495ED
+Effects,GrainSize,25,Size,#6495ED
+Effects,GrainFrequency,50,Roughness,#6495ED
+Effects,PostCropVignetteAmount,-58,Vignetting,#6495ED
+Effects,PostCropVignetteMidpoint,50,Midpoint,#6495ED
+Effects,PostCropVignetteFeather,50,Feather,#6495ED
+Effects,PostCropVignetteRoundness,0,Roundness,#6495ED
+Effects,PostCropVignetteStyle,1,Style,#6495ED
+Effects,PostCropVignetteHighlightContrast,0,Highlights,#6495ED
+Calibration,ShadowTint,50,Tint Shadows,#CCCCFF
+Calibration,RedHue,36,Red Primary Hue,#CCCCFF
+Calibration,RedSaturation,-42,Red Primary Saturation,#CCCCFF
+Calibration,GreenHue,-37,Green Primary Hue,#CCCCFF
+Calibration,GreenSaturation,51,Green Primary Saturation,#CCCCFF
+Calibration,BlueHue,40,Blue Primary Hue,#CCCCFF
+Calibration,BlueSaturation,-44,Blue Primary Saturation,#CCCCFF

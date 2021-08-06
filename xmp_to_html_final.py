@@ -12,10 +12,7 @@ import jinja2
 group_df = pd.read_csv('XMP.csv')
 
 
-def render_html(coloumn_values, coloumn_values2, color_arr):
-    """
-    Render html page using jinja
-    """
+def render_html(coloumn_values, coloumn_values2):
     template_loader = jinja2.FileSystemLoader(searchpath="./")
     template_env = jinja2.Environment(loader=template_loader)
     template_file = "index.html"
@@ -24,7 +21,6 @@ def render_html(coloumn_values, coloumn_values2, color_arr):
         # coloumn_names=coloumn_names,
         coloumn_values=coloumn_values,
         coloumn_values2=coloumn_values2,
-        color_arr=color_arr,
         # address=row.Address,
         # date=get_date(),
         # invoice=row.Invoice,
@@ -39,9 +35,10 @@ def render_html(coloumn_values, coloumn_values2, color_arr):
     html_file.close()
 
 
+# todo: specify the path of directory where xmp files are exist ## DO NOT REMOVE '/*.xmp' FROM BELOW LINE ##
 for name in glob.glob('xmp_files/*.xmp', recursive=True):
     file_name = name.split('\\')[1].split('.')[0] + '.html'
-    print(file_name)
+    print(name.split('\\')[1])
     tree = ET.parse(name)
 
     # tree = ET.parse("xmp_files/Alexei - bbbronzebeach2.xmp")
@@ -75,9 +72,10 @@ for name in glob.glob('xmp_files/*.xmp', recursive=True):
                 search_group = group_df[group_df['Tag'] == tag_name]
                 group_name = search_group['Group'].values[0]
                 Photoshop_Name = search_group['Photoshop Name'].values[0]
-                print(Photoshop_Name)
+                color = search_group['Color'].values[0]
                 group_dict.append(
-                    {'Group': group_name, tag_name + '_': tag_name, tag_name: values, Photoshop_Name: Photoshop_Name})
+                    {'Group': group_name, 'tag_name': tag_name, 'value': values, 'Photoshop_Name': Photoshop_Name,
+                     'color': color})
             except Exception as e:
                 pass
                 # group_name = group = group_df[group_df['Tag'] == root[0][0][el_no].tag.split('}')[1]]['Group'].values[0]
@@ -96,10 +94,9 @@ for name in glob.glob('xmp_files/*.xmp', recursive=True):
                         search_group = group_df[group_df['Tag'] == tag_name]
                         group_name = search_group['Group'].values[0]
                         Photoshop_Name = search_group['Photoshop Name'].values[0]
-                        print(Photoshop_Name)
-
-                        group_dict.append({'Group': group_name, tag_name + '_': tag_name, tag_name: values,
-                                           Photoshop_Name: Photoshop_Name})
+                        color = search_group['Color'].values[0]
+                        group_dict.append({'Group': group_name, 'tag_name': tag_name, 'value': values,
+                                           'Photoshop_Name': Photoshop_Name, 'color': color})
                     except Exception as e:
                         pass
                         # group_name = group = \
@@ -109,9 +106,6 @@ for name in glob.glob('xmp_files/*.xmp', recursive=True):
     # print(group_dict)
     # gdf = pd.DataFrame(group_dict)
     gdf = group_dict
-    print(gdf)
-    for k in group_dict:
-        print(k)
     # gdf.to_html('demo.html', na_rep='')
     # second_part = {}
     # for elem in root.iter():
@@ -142,9 +136,11 @@ for name in glob.glob('xmp_files/*.xmp', recursive=True):
             try:
                 search_group = group = group_df[group_df['Tag'] == key.split('}')[1]]
                 temp['Group'] = search_group['Group'].values[0]
-                temp[key.split('}')[1] + '_'] = key.split('}')[1]
-                temp[key.split('}')[1]] = value
+                temp['tag_name'] = key.split('}')[1]
+                temp['value'] = value
                 temp['Photoshop_Name'] = search_group['Photoshop Name'].values[0]
+                temp['color'] = search_group['Color'].values[0]
+
                 table_dict.append(temp)
                 # table_dict.append({'Group': group_name})
             except Exception as e:
@@ -157,11 +153,10 @@ for name in glob.glob('xmp_files/*.xmp', recursive=True):
 
     first_part_df = table_dict
     # first_part_df = pd.DataFrame([table_dict])
-
-    random_colors = ['#00ad8b', '#25b9a9', '#ff3200', ]
-    # color_length = len(first_part_df.columns.tolist())
-    color_arr = []
-    for c in range(150):
-        r = lambda: random.randint(100, 200)
-        color_arr.append('#%02X%02X%02X' % (r(), r(), r()))
-    render_html(first_part_df, gdf, color_arr)
+    # random_colors = ['#00ad8b', '#25b9a9', '#ff3200', ]
+    # color_length = len(first_part_df)
+    # color_arr = []
+    # for c in range(150):
+    #     r = lambda: random.randint(100, 200)
+    #     color_arr.append('#%02X%02X%02X' % (r(), r(), r()))
+    render_html(first_part_df, gdf)
