@@ -57,20 +57,20 @@ for name in glob.glob('xmp_files/*.xmp', recursive=True):
     group_dict = []
     for el_no in range(elements_count - 1):
         # print(len(list(root[0][0][el_no].iter())[2:]))
+        tag_name = root[0][0][el_no].tag.split('}')[1]
         if len(list(root[0][0][el_no].iter())[2:]) > 1:
             values = ''
             for i in list(root[0][0][el_no].iter())[2:]:
                 # print(list(root[0][0][el_no].iter()))
                 # print(i.tag, i.text, i.attrib)
                 # print(root[0][0][el_no].tag.split('}')[1])
-                print(i.text)
+                # print(i.text)
                 if i.text is not None or i.text != '':
                     # pass
                     # print(root[0][0][el_no].tag.split('}')[1], i.text)
                     values += i.text
                     # print(values)
 
-            tag_name = root[0][0][el_no].tag.split('}')[1]
             try:
                 group_name = group = group_df[group_df['Tag'] == tag_name]['Group'].values[0]
                 group_dict.append({'Group': group_name, tag_name+'_': tag_name, tag_name: values})
@@ -81,10 +81,9 @@ for name in glob.glob('xmp_files/*.xmp', recursive=True):
         else:
             # print(root[0][0][el_no].tag.split('}')[1])
             for i in list(root[0][0][el_no].iter())[2:]:
-                print(i)
                 # print(list(root[0][0][el_no].iter()))
                 # print(i.tag, i.text, i.attrib)
-                print(type(i.text))
+                # print(type(i.text))
                 if i.text is not None or i.text != '':
                     # pass
                     # print(root[0][0][el_no].tag.split('}')[1], i.text)
@@ -100,9 +99,8 @@ for name in glob.glob('xmp_files/*.xmp', recursive=True):
                         # group_dict.update({tag_name: i.text, })
 
     # print(group_dict)
-    gdf = pd.DataFrame(group_dict)
-    # for k, v in gdf.to_dict().items():
-    #     print(k, v)
+    # gdf = pd.DataFrame(group_dict)
+    gdf = group_dict
     # gdf.to_html('demo.html', na_rep='')
     # second_part = {}
     # for elem in root.iter():
@@ -146,12 +144,15 @@ for name in glob.glob('xmp_files/*.xmp', recursive=True):
                 # table_dict.append(temp)
                 # table_dict.append({'Group': group_name})
 
-    first_part_df = pd.DataFrame([table_dict])
+    first_part_df = table_dict
+    for k in table_dict:
+        print(k)
+    # first_part_df = pd.DataFrame([table_dict])
 
     random_colors = ['#00ad8b', '#25b9a9', '#ff3200', ]
-    color_length = len(first_part_df.columns.tolist())
+    # color_length = len(first_part_df.columns.tolist())
     color_arr = []
-    for c in range(color_length):
+    for c in range(150):
         r = lambda: random.randint(100, 200)
         color_arr.append('#%02X%02X%02X' % (r(), r(), r()))
-    render_html(first_part_df.to_dict(), gdf.to_dict(), color_arr)
+    render_html(first_part_df, gdf, color_arr)

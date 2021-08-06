@@ -12,9 +12,9 @@
         </tr>
         </thead>
         <tbody>
-        {% for key, coloumn_value in coloumn_values.items() %}
+        {% for coloumn_value in coloumn_values %}
         <tr>
-            {% for key2, coloumn_value2 in coloumn_value[0].items() %}
+            {% for key2, coloumn_value2 in coloumn_value.items() %}
             {% if key2 == 'Group' %}
             <td class="text-light" bgcolor="{{color_arr|random}}">{{ coloumn_value2 }}</td>
             {% else %}
@@ -25,7 +25,18 @@
         </tr>
         {% endfor %}
 
-
+        {% for coloumn_value in coloumn_values2 %}
+        <tr>
+            {% for key2, coloumn_value2 in coloumn_value.items() %}
+            {% if key2 == 'Group' %}
+            <td class="text-light" bgcolor="{{color_arr|random}}">{{ coloumn_value2 }}</td>
+            {% else %}
+            <td class="text-center fa-bold">{{ coloumn_value2 }}</td>
+            {% endif %}
+            <!--            -->
+            {% endfor %}
+        </tr>
+        {% endfor %}
         </tbody>
     </table>
 </div>
