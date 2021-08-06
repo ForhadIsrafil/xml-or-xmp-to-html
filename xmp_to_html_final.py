@@ -72,7 +72,7 @@ for name in glob.glob('xmp_files/*.xmp', recursive=True):
                     # print(values)
 
             try:
-                search_group = group_df[group_df['Tag'] == key.split('}')[1]]
+                search_group = group_df[group_df['Tag'] == tag_name]
                 group_name = search_group['Group'].values[0]
                 Photoshop_Name = search_group['Photoshop Name'].values[0]
                 print(Photoshop_Name)
@@ -93,7 +93,7 @@ for name in glob.glob('xmp_files/*.xmp', recursive=True):
                     # print(root[0][0][el_no].tag.split('}')[1], i.text)
                     # tag_name = root[0][0][el_no].tag.split('}')[1]
                     try:
-                        search_group = group_df[group_df['Tag'] == key.split('}')[1]]
+                        search_group = group_df[group_df['Tag'] == tag_name]
                         group_name = search_group['Group'].values[0]
                         Photoshop_Name = search_group['Photoshop Name'].values[0]
                         print(Photoshop_Name)
@@ -109,6 +109,9 @@ for name in glob.glob('xmp_files/*.xmp', recursive=True):
     # print(group_dict)
     # gdf = pd.DataFrame(group_dict)
     gdf = group_dict
+    print(gdf)
+    for k in group_dict:
+        print(k)
     # gdf.to_html('demo.html', na_rep='')
     # second_part = {}
     # for elem in root.iter():
@@ -153,8 +156,6 @@ for name in glob.glob('xmp_files/*.xmp', recursive=True):
                 # table_dict.append({'Group': group_name})
 
     first_part_df = table_dict
-    # for k in table_dict:
-    #     print(k)
     # first_part_df = pd.DataFrame([table_dict])
 
     random_colors = ['#00ad8b', '#25b9a9', '#ff3200', ]
