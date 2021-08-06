@@ -55,7 +55,7 @@ for name in glob.glob('xmp_files/*.xmp', recursive=True):
         # print(len(list(root[0][0][el_no].iter())[2:]))
         tag_name = root[0][0][el_no].tag.split('}')[1]
         if len(list(root[0][0][el_no].iter())[2:]) > 1:
-            values = ''
+            # values = ''
             for i in list(root[0][0][el_no].iter())[2:]:
                 # print(list(root[0][0][el_no].iter()))
                 # print(i.tag, i.text, i.attrib)
@@ -64,21 +64,20 @@ for name in glob.glob('xmp_files/*.xmp', recursive=True):
                 if i.text is not None or i.text != '':
                     # pass
                     # print(root[0][0][el_no].tag.split('}')[1], i.text)
-                    values += i.text
+                    # values += i.text
                     # print(values)
 
-            try:
-                search_group = group_df[group_df['Tag'] == tag_name]
-                group_name = search_group['Group'].values[0]
-                Photoshop_Name = search_group['Photoshop Name'].values[0]
-                color = search_group['Color'].values[0]
-                group_dict.append(
-                    {'Group': group_name, 'tag_name': tag_name, 'value': values, 'Photoshop_Name': Photoshop_Name,
-                     'color': color})
-            except Exception as e:
-                pass
-                # group_name = group = group_df[group_df['Tag'] == root[0][0][el_no].tag.split('}')[1]]['Group'].values[0]
-                # group_dict.update({'<b>'+group_name+'</b> '+root[0][0][el_no].tag.split('}')[1]: values})
+                    try:
+                        search_group = group_df[group_df['Tag'] == tag_name]
+                        group_name = search_group['Group'].values[0]
+                        Photoshop_Name = search_group['Photoshop Name'].values[0]
+                        color = search_group['Color'].values[0]
+                        group_dict.append(
+                            {'Group': group_name, 'tag_name': tag_name, 'value': i.text, 'Photoshop_Name': Photoshop_Name,
+                             'color': color})
+                    except Exception as e:
+                        pass
+
         else:
             # print(root[0][0][el_no].tag.split('}')[1])
             for i in list(root[0][0][el_no].iter())[2:]:
