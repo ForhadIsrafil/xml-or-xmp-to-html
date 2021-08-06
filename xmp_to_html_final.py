@@ -54,7 +54,7 @@ for name in glob.glob('xmp_files/*.xmp', recursive=True):
         2:])
     # print(elements_count)
     # todo: get second part data
-    group_dict = {}
+    group_dict = []
     for el_no in range(elements_count - 1):
         # print(len(list(root[0][0][el_no].iter())[2:]))
         if len(list(root[0][0][el_no].iter())[2:]) > 1:
@@ -63,15 +63,17 @@ for name in glob.glob('xmp_files/*.xmp', recursive=True):
                 # print(list(root[0][0][el_no].iter()))
                 # print(i.tag, i.text, i.attrib)
                 # print(root[0][0][el_no].tag.split('}')[1])
-                # print(type(i.text))
-                if i.text is None or i.text != '':
+                print(i.text)
+                if i.text is not None or i.text != '':
                     # pass
                     # print(root[0][0][el_no].tag.split('}')[1], i.text)
                     values += i.text
                     # print(values)
+
+            tag_name = root[0][0][el_no].tag.split('}')[1]
             try:
-                group_name = group = group_df[group_df['Tag'] == root[0][0][el_no].tag.split('}')[1]]['Group'].values[0]
-                group_dict.update({'<b>'+group_name+'</b> '+root[0][0][el_no].tag.split('}')[1]: values})
+                group_name = group = group_df[group_df['Tag'] == tag_name]['Group'].values[0]
+                group_dict.append({'Group': group_name, tag_name+'_': tag_name, tag_name: values})
             except Exception as e:
                 pass
                 # group_name = group = group_df[group_df['Tag'] == root[0][0][el_no].tag.split('}')[1]]['Group'].values[0]
@@ -79,17 +81,18 @@ for name in glob.glob('xmp_files/*.xmp', recursive=True):
         else:
             # print(root[0][0][el_no].tag.split('}')[1])
             for i in list(root[0][0][el_no].iter())[2:]:
+                print(i)
                 # print(list(root[0][0][el_no].iter()))
                 # print(i.tag, i.text, i.attrib)
-                # print(type(i.text))
-                if i.text is None or i.text != '':
+                print(type(i.text))
+                if i.text is not None or i.text != '':
                     # pass
                     # print(root[0][0][el_no].tag.split('}')[1], i.text)
-                    tag_name = root[0][0][el_no].tag.split('}')[1]
+                    # tag_name = root[0][0][el_no].tag.split('}')[1]
                     try:
                         group_name = group = \
-                            group_df[group_df['Tag'] == root[0][0][el_no].tag.split('}')[1]]['Group'].values[0]
-                        group_dict.update({tag_name: i.text})
+                            group_df[group_df['Tag'] == tag_name]['Group'].values[0]
+                        group_dict.append({'Group': group_name, tag_name+'_': values, tag_name: values})
                     except Exception as e:
                         pass
                         # group_name = group = \
@@ -97,7 +100,9 @@ for name in glob.glob('xmp_files/*.xmp', recursive=True):
                         # group_dict.update({tag_name: i.text, })
 
     # print(group_dict)
-    gdf = pd.DataFrame([group_dict])
+    gdf = pd.DataFrame(group_dict)
+    # for k, v in gdf.to_dict().items():
+    #     print(k, v)
     # gdf.to_html('demo.html', na_rep='')
     # second_part = {}
     # for elem in root.iter():
@@ -142,8 +147,7 @@ for name in glob.glob('xmp_files/*.xmp', recursive=True):
                 # table_dict.append({'Group': group_name})
 
     first_part_df = pd.DataFrame([table_dict])
-    for k,v in gdf.to_dict().items():
-        print(k,v)
+
     random_colors = ['#00ad8b', '#25b9a9', '#ff3200', ]
     color_length = len(first_part_df.columns.tolist())
     color_arr = []
