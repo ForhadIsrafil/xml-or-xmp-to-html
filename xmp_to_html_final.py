@@ -2,8 +2,7 @@ import lxml.html
 import json
 from lxml import etree
 import xml.etree.ElementTree as ET
-from xml.dom import minidom
-import xmltodict
+# import xmltodict
 import random
 import glob
 import pandas as pd
