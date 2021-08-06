@@ -73,8 +73,9 @@ for name in glob.glob('xmp_files/*.xmp', recursive=True):
                 group_name = group = group_df[group_df['Tag'] == root[0][0][el_no].tag.split('}')[1]]['Group'].values[0]
                 group_dict.update({'<b>'+group_name+'</b> '+root[0][0][el_no].tag.split('}')[1]: values})
             except Exception as e:
-                group_name = group = group_df[group_df['Tag'] == root[0][0][el_no].tag.split('}')[1]]['Group'].values[0]
-                group_dict.update({'<b>'+group_name+'</b> '+root[0][0][el_no].tag.split('}')[1]: values})
+                pass
+                # group_name = group = group_df[group_df['Tag'] == root[0][0][el_no].tag.split('}')[1]]['Group'].values[0]
+                # group_dict.update({'<b>'+group_name+'</b> '+root[0][0][el_no].tag.split('}')[1]: values})
         else:
             # print(root[0][0][el_no].tag.split('}')[1])
             for i in list(root[0][0][el_no].iter())[2:]:
@@ -84,14 +85,16 @@ for name in glob.glob('xmp_files/*.xmp', recursive=True):
                 if i.text is None or i.text != '':
                     # pass
                     # print(root[0][0][el_no].tag.split('}')[1], i.text)
+                    tag_name = root[0][0][el_no].tag.split('}')[1]
                     try:
                         group_name = group = \
                             group_df[group_df['Tag'] == root[0][0][el_no].tag.split('}')[1]]['Group'].values[0]
-                        group_dict.update({'<b>'+group_name+'</b> '+root[0][0][el_no].tag.split('}')[1]: i.text})
+                        group_dict.update({tag_name: i.text})
                     except Exception as e:
-                        group_name = group = \
-                            group_df[group_df['Tag'] == root[0][0][el_no].tag.split('}')[1]]['Group'].values[0]
-                        group_dict.update({'<b>'+group_name+'</b> '+root[0][0][el_no].tag.split('}')[1]: i.text})
+                        pass
+                        # group_name = group = \
+                        #     group_df[group_df['Tag'] == root[0][0][el_no].tag.split('}')[1]]['Group'].values[0]
+                        # group_dict.update({tag_name: i.text, })
 
     # print(group_dict)
     gdf = pd.DataFrame([group_dict])
@@ -125,14 +128,17 @@ for name in glob.glob('xmp_files/*.xmp', recursive=True):
             try:
                 group_name = group = \
                     group_df[group_df['Tag'] == key.split('}')[1]]['Group'].values[0]
-                temp['<b>'+group_name+'</b> '+key.split('}')[1]] = value
-                # temp['Group'] = group_name
+                temp['Group'] = group_name
+                temp[key.split('}')[1] + '_'] = key.split('}')[1]
+                temp[key.split('}')[1]] = value
                 table_dict.append(temp)
                 # table_dict.append({'Group': group_name})
             except Exception as e:
-                temp[' '+key.split('}')[1]] = value
+                pass
                 # temp['Group'] = 'NaN'
-                table_dict.append(temp)
+                # temp[key.split('}')[1]+'_'] = key.split('}')[1]
+                # temp[key.split('}')[1]] = value
+                # table_dict.append(temp)
                 # table_dict.append({'Group': group_name})
 
     first_part_df = pd.DataFrame([table_dict])
