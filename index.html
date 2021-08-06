@@ -14,10 +14,21 @@
         <!--    </thead>-->
         <tbody>
         {% for key, coloumn_value in coloumn_values.items() %}
+        {% for key2, coloumn_value2 in coloumn_value[0].items() %}
+        <tr>
+            <td class="text-light" bgcolor="{{color_arr|random}}">{{ key2 }}</td>
+            <td class="text-center fa-bold">{{ coloumn_value2 }}</td>
+        </tr>
+        {% endfor %}
+        {% endfor %}
+
+        {% for key, coloumn_value in coloumn_values2.items() %}
+        {% for key2, coloumn_value2 in coloumn_value.items() %}
         <tr>
             <td class="text-light" bgcolor="{{color_arr|random}}">{{ key }}</td>
-            <td class="text-center fa-bold">{{ coloumn_value[0] }}</td>
+            <td class="text-center fa-bold">{{ coloumn_value2 }}</td>
         </tr>
+        {% endfor %}
         {% endfor %}
 
         </tbody>

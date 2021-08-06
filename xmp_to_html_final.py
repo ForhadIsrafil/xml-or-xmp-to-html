@@ -12,7 +12,7 @@ import jinja2
 group_df = pd.read_csv('XMP.csv')
 
 
-def render_html(coloumn_values, color_arr):
+def render_html(coloumn_values, coloumn_values2, color_arr):
     """
     Render html page using jinja
     """
@@ -23,6 +23,7 @@ def render_html(coloumn_values, color_arr):
     output_text = template.render(
         # coloumn_names=coloumn_names,
         coloumn_values=coloumn_values,
+        coloumn_values2=coloumn_values2,
         color_arr=color_arr,
         # address=row.Address,
         # date=get_date(),
@@ -68,8 +69,12 @@ for name in glob.glob('xmp_files/*.xmp', recursive=True):
                     # print(root[0][0][el_no].tag.split('}')[1], i.text)
                     values += i.text
                     # print(values)
-            group_name = group = group_df[group_df['Tag'] == root[0][0][el_no].tag.split('}')[1]]['Group'].values[0]
-            group_dict.update({root[0][0][el_no].tag.split('}')[1]: values, 'Group': group_name})
+            try:
+                group_name = group = group_df[group_df['Tag'] == root[0][0][el_no].tag.split('}')[1]]['Group'].values[0]
+                group_dict.update({'<b>'+group_name+'</b> '+root[0][0][el_no].tag.split('}')[1]: values})
+            except Exception as e:
+                group_name = group = group_df[group_df['Tag'] == root[0][0][el_no].tag.split('}')[1]]['Group'].values[0]
+                group_dict.update({'<b>'+group_name+'</b> '+root[0][0][el_no].tag.split('}')[1]: values})
         else:
             # print(root[0][0][el_no].tag.split('}')[1])
             for i in list(root[0][0][el_no].iter())[2:]:
@@ -79,9 +84,14 @@ for name in glob.glob('xmp_files/*.xmp', recursive=True):
                 if i.text is None or i.text != '':
                     # pass
                     # print(root[0][0][el_no].tag.split('}')[1], i.text)
-                    group_name = group = \
-                        group_df[group_df['Tag'] == root[0][0][el_no].tag.split('}')[1]]['Group'].values[0]
-                    group_dict.update({root[0][0][el_no].tag.split('}')[1]: i.text, 'Group': group_name})
+                    try:
+                        group_name = group = \
+                            group_df[group_df['Tag'] == root[0][0][el_no].tag.split('}')[1]]['Group'].values[0]
+                        group_dict.update({'<b>'+group_name+'</b> '+root[0][0][el_no].tag.split('}')[1]: i.text})
+                    except Exception as e:
+                        group_name = group = \
+                            group_df[group_df['Tag'] == root[0][0][el_no].tag.split('}')[1]]['Group'].values[0]
+                        group_dict.update({'<b>'+group_name+'</b> '+root[0][0][el_no].tag.split('}')[1]: i.text})
 
     # print(group_dict)
     gdf = pd.DataFrame([group_dict])
@@ -102,7 +112,7 @@ for name in glob.glob('xmp_files/*.xmp', recursive=True):
 
     # ==================
     # todo: get first part data
-    table_dict = {}
+    table_dict = []
     for x in root[0]:
         # print('one')
         # print(x.tag, x.attrib, x.text)
@@ -115,94 +125,23 @@ for name in glob.glob('xmp_files/*.xmp', recursive=True):
             try:
                 group_name = group = \
                     group_df[group_df['Tag'] == key.split('}')[1]]['Group'].values[0]
-                temp[key.split('}')[1]] = value
-                temp['Group'] = group_name
-                table_dict.update(temp)
+                temp['<b>'+group_name+'</b> '+key.split('}')[1]] = value
+                # temp['Group'] = group_name
+                table_dict.append(temp)
+                # table_dict.append({'Group': group_name})
             except Exception as e:
-                temp[key.split('}')[1]] = value
-                temp['Group'] = ''
+                temp[' '+key.split('}')[1]] = value
+                # temp['Group'] = 'NaN'
+                table_dict.append(temp)
+                # table_dict.append({'Group': group_name})
 
-df = pd.DataFrame([table_dict])
-dfs = pd.concat([df, gdf], axis=1, )
-# print(dfs.style.set_table_styles(axis=1,))
-# dfs.set_index(dfs.columns.tolist())
-
-# print(df.columns.tolist())
-# template = """"
-# <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-# # <style>
-# # th {
-# #     background: red;
-# #     color: black;
-# #     text-align: left;
-# # }
-# # </style>
-# <body>
-# %s
-# </body>
-# """
-# classes = 'table table-responsive table-success table-bordered table-hover table-sm'
-# html = template % dfs.to_html(classes=classes)
-#
-# with open(file_name, 'w') as f:
-#     f.write(html)
-# f.close()
-# dfs.to_html('Alexei - bbbronzebeach2.html', na_rep='', notebook=True, justify='center',
-#             classes=["table-bordered","table-responsive", "table-striped", "table-hover"])
-# ==================
-random_colors = ['#00ad8b', '#25b9a9', '#ff3200', ]
-color_length = len(dfs.columns.tolist())
-color_arr = []
-for c in range(color_length):
-    r = lambda: random.randint(100, 200)
-    color_arr.append('#%02X%02X%02X' % (r(), r(), r()))
-render_html(dfs.to_dict(), color_arr)
-
-'''
-1. first part is just key value pairs visible in a table
-
-2. but second part is grouped. for example:
-
-<crs:ToneCurvePV2012Red>
-<rdf:Seq>
-<rdf:li>0, 0</rdf:li>
-<rdf:li>40, 12</rdf:li>
-<rdf:li>84, 58</rdf:li>
-<rdf:li>124, 123</rdf:li>
-<rdf:li>186, 196</rdf:li>
-<rdf:li>255, 255</rdf:li>
-</rdf:Seq>
-</crs:ToneCurvePV2012Red>
-
-3. also this should be grouped:
-
-crs:HueAdjustmentRed="-11"
-crs:HueAdjustmentOrange="-26"
-crs:HueAdjustmentYellow="-31"
-crs:HueAdjustmentGreen="-33"
-crs:HueAdjustmentAqua="+22"
-crs:HueAdjustmentBlue="-31"
-crs:HueAdjustmentPurple="0"
-crs:HueAdjustmentMagenta="0"
-
-crs:SaturationAdjustmentRed="-18"
-crs:SaturationAdjustmentOrange="-42"
-crs:SaturationAdjustmentYellow="-59"
-crs:SaturationAdjustmentGreen="-69"
-crs:SaturationAdjustmentAqua="+41"
-crs:SaturationAdjustmentBlue="-50"
-crs:SaturationAdjustmentPurple="-47"
-crs:SaturationAdjustmentMagenta="-46"
-
-crs:LuminanceAdjustmentRed="0"
-crs:LuminanceAdjustmentOrange="0"
-crs:LuminanceAdjustmentYellow="0"
-crs:LuminanceAdjustmentGreen="+41"
-crs:LuminanceAdjustmentAqua="0"
-crs:LuminanceAdjustmentBlue="0"
-crs:LuminanceAdjustmentPurple="0"
-crs:LuminanceAdjustmentMagenta="0"
-'''
-
-# for k, v in dfs.to_dict().items():
-#     print(v)
+    first_part_df = pd.DataFrame([table_dict])
+    for k,v in gdf.to_dict().items():
+        print(k,v)
+    random_colors = ['#00ad8b', '#25b9a9', '#ff3200', ]
+    color_length = len(first_part_df.columns.tolist())
+    color_arr = []
+    for c in range(color_length):
+        r = lambda: random.randint(100, 200)
+        color_arr.append('#%02X%02X%02X' % (r(), r(), r()))
+    render_html(first_part_df.to_dict(), gdf.to_dict(), color_arr)
