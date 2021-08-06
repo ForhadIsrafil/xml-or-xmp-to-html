@@ -8,7 +8,7 @@ import xmltodict
 import pandas as pd
 
 group_df = pd.read_csv('XMP.csv')
-group = group_df[group_df['Tag'] == 'ToneCurvePV2012Green']['Group'].values[0]
+group = group_df[group_df['Tag'] == 'ToneCurvePV2012Green']['Photoshop Name'].values[0]
 
 print(group)
 # data_dict = xmltodict.parse(open("xmp_files/123PRESETS SunKissed V4.xmp", encoding='utf-8').read())

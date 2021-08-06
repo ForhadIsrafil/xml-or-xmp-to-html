@@ -9,6 +9,7 @@
             <th scope="col">Group</th>
             <th scope="col">Tag</th>
             <th scope="col">Value</th>
+            <th scope="col">Photoshop Name</th>
         </tr>
         </thead>
         <tbody>
@@ -18,7 +19,7 @@
             {% if key2 == 'Group' %}
             <td class="text-light" bgcolor="{{color_arr|random}}">{{ coloumn_value2 }}</td>
             {% else %}
-            <td class="text-center fa-bold">{{ coloumn_value2 }}</td>
+            <td class="text-left fa-bold">{{ coloumn_value2 }}</td>
             {% endif %}
             <!--            -->
             {% endfor %}

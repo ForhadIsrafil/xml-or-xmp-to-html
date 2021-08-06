@@ -72,8 +72,12 @@ for name in glob.glob('xmp_files/*.xmp', recursive=True):
                     # print(values)
 
             try:
-                group_name = group = group_df[group_df['Tag'] == tag_name]['Group'].values[0]
-                group_dict.append({'Group': group_name, tag_name+'_': tag_name, tag_name: values})
+                search_group = group_df[group_df['Tag'] == key.split('}')[1]]
+                group_name = search_group['Group'].values[0]
+                Photoshop_Name = search_group['Photoshop Name'].values[0]
+                print(Photoshop_Name)
+                group_dict.append(
+                    {'Group': group_name, tag_name + '_': tag_name, tag_name: values, Photoshop_Name: Photoshop_Name})
             except Exception as e:
                 pass
                 # group_name = group = group_df[group_df['Tag'] == root[0][0][el_no].tag.split('}')[1]]['Group'].values[0]
@@ -89,9 +93,13 @@ for name in glob.glob('xmp_files/*.xmp', recursive=True):
                     # print(root[0][0][el_no].tag.split('}')[1], i.text)
                     # tag_name = root[0][0][el_no].tag.split('}')[1]
                     try:
-                        group_name = group = \
-                            group_df[group_df['Tag'] == tag_name]['Group'].values[0]
-                        group_dict.append({'Group': group_name, tag_name+'_': values, tag_name: values})
+                        search_group = group_df[group_df['Tag'] == key.split('}')[1]]
+                        group_name = search_group['Group'].values[0]
+                        Photoshop_Name = search_group['Photoshop Name'].values[0]
+                        print(Photoshop_Name)
+
+                        group_dict.append({'Group': group_name, tag_name + '_': tag_name, tag_name: values,
+                                           Photoshop_Name: Photoshop_Name})
                     except Exception as e:
                         pass
                         # group_name = group = \
@@ -129,11 +137,11 @@ for name in glob.glob('xmp_files/*.xmp', recursive=True):
             temp = {}
             # print(key.split('}')[1], value)
             try:
-                group_name = group = \
-                    group_df[group_df['Tag'] == key.split('}')[1]]['Group'].values[0]
-                temp['Group'] = group_name
+                search_group = group = group_df[group_df['Tag'] == key.split('}')[1]]
+                temp['Group'] = search_group['Group'].values[0]
                 temp[key.split('}')[1] + '_'] = key.split('}')[1]
                 temp[key.split('}')[1]] = value
+                temp['Photoshop_Name'] = search_group['Photoshop Name'].values[0]
                 table_dict.append(temp)
                 # table_dict.append({'Group': group_name})
             except Exception as e:
@@ -145,8 +153,8 @@ for name in glob.glob('xmp_files/*.xmp', recursive=True):
                 # table_dict.append({'Group': group_name})
 
     first_part_df = table_dict
-    for k in table_dict:
-        print(k)
+    # for k in table_dict:
+    #     print(k)
     # first_part_df = pd.DataFrame([table_dict])
 
     random_colors = ['#00ad8b', '#25b9a9', '#ff3200', ]
