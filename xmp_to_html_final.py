@@ -1,6 +1,4 @@
-import lxml.html
 import json
-from lxml import etree
 import xml.etree.ElementTree as ET
 # import xmltodict
 import random

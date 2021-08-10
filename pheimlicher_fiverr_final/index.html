@@ -1,0 +1,49 @@
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<body>
+<div class="container">
+    <table border="1" class="table dataframe  table-responsive table-success table-bordered table-hover table-sm">
+        <thead>
+        <tr>
+            <th scope="col">Group</th>
+            <th scope="col">Tag</th>
+            <th scope="col">Value</th>
+            <th scope="col">Photoshop Name</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for coloumn_value in coloumn_values %}
+        <tr>
+            {% for key2, coloumn_value2 in coloumn_value.items() %}
+            <!--            {{ coloumn_value['Group'] }}-->
+            {% if key2 == 'Group' %}
+            <td class="text-light" bgcolor="{{coloumn_value['color']}}">{{ coloumn_value2 }}</td>
+            {% else %}
+            {% if key2 != 'color' %}
+            <td class="text-left fa-bold">{{ coloumn_value2 }}</td>
+            {% endif %}
+            {% endif %}
+            <!--            -->
+            {% endfor %}
+        </tr>
+        {% endfor %}
+
+        {% for coloumn_value in coloumn_values2 %}
+        <tr>
+            {% for key2, coloumn_value2 in coloumn_value.items() %}
+            {% if key2 == 'Group' %}
+            <td class="text-light" bgcolor="{{coloumn_value['color']}}">{{ coloumn_value2 }}</td>
+            {% else %}
+            {% if key2 != 'color' %}
+            <td class="text-left fa-bold">{{ coloumn_value2 }}</td>
+            {% endif %}
+            {% endif %}
+            <!--            -->
+            {% endfor %}
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
