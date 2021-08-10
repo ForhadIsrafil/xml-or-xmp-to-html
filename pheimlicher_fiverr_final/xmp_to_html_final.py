@@ -34,8 +34,8 @@ def render_html(coloumn_values, coloumn_values2):
 
 # todo: specify the path of directory where xmp files are exist ## DO NOT REMOVE '/*.xmp' FROM BELOW LINE ##
 for name in glob.glob('xmp_files/*.xmp', recursive=True):
-    file_name = name.split('\\')[1].split('.')[0] + '.html'
-    print(name.split('\\')[1])
+    file_name = name.split('/')[1].split('.')[0] + '.html'
+    print(name.split('/')[1])
     tree = ET.parse(name)
 
     # tree = ET.parse("xmp_files/Alexei - bbbronzebeach2.xmp")
